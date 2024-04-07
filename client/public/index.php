@@ -66,13 +66,13 @@
     <div class="swiper swiper-container">
       <div class="swiper-wrapper">
         <div class="swiper-slide">
-          <img src="img/hostel_1.jpg" class="w-100 d-block" />
+          <img src="../../img/hostel_1.jpg" class="w-100 " />
         </div>
         <div class="swiper-slide">
-          <img src="img/hostel_2.jpg" class="w-100 d-block" />
+          <img src="../../img/hosterl_2.jpg" class="w-100 " />
         </div>
         <div class="swiper-slide">
-          <img src="img/hostel_3.jpg" class="w-100 d-block" />
+          <img src="../../img/hostel_3.jpg" class="w-100 " />
         </div>
 
       </div>
@@ -83,8 +83,8 @@
   <!-- availabity form -->
   <div class="container availabity-form">
     <div class="row">
-      <div class="col-lg-12 bg-white shadow p-3 rounded">
-        <h5 class="mb-4">Check Availability of Hostels</h5>
+      <div class="col-lg-12 bg-white shadow mt-lg-5  rounded">
+        <h5 class="">search Hostels</h5>
         <form>
           <div class="row align-items-end">
             <div class="col-lg-4 mb-3">
@@ -119,12 +119,12 @@
 
   <!-- Rooms  -->
 
-  <h2 class="mt-5 pt-4 md-4 text-center ">Available Rooms And Hostels</h2>
+  <h2 class="mt-5 pt-4 md-4 text-center "></h2>
   <div class="container">
     <div class="row">
       <div class="col-lg-4 col-md-6 my-3">
         <div class="card border-0 shadow" style="width:350px; margin: auto;">
-          <img src="img/room_1.jpeg" class="card-img-top">
+          <img src="../../img/home_1.jpg" class="card-img-top">
           <div class="card-body">
             <h5>Sample Room</h5>
             <h6 class="mb-4 ">Rs. 100000 per year </h6>
@@ -156,13 +156,13 @@
 
             </div>
             <a href="#" class="btn btn-sm text-white custom-bg shadow-none">Book Now</a>
-            <a href="rooms.php" class="btn btn-sm btn-outline-dark shadow-none">More details</a>
+            <a href="../pages/rooms.php" class="btn btn-sm btn-outline-dark shadow-none">More details</a>
           </div>
         </div>
       </div>
       <div class="col-lg-4 col-md-6 my-3">
         <div class="card border-0 shadow" style="width:350px; margin: auto;">
-          <img src="img/room_2.jpeg" class="card-img-top">
+          <img src="../../img/home_2.jpg" class="card-img-top">
           <div class="card-body">
             <h5>Sample Room</h5>
             <h6 class="mb-4 ">Rs. 100000 per year </h6>
@@ -193,13 +193,13 @@
 
             </div>
             <a href="#" class="btn btn-sm text-white custom-bg shadow-none">Book Now</a>
-            <a href="rooms.php" class="btn btn-sm btn-outline-dark shadow-none">More details</a>
+            <a href="../pages/rooms.php" class="btn btn-sm btn-outline-dark shadow-none">More details</a>
           </div>
         </div>
       </div>
       <div class="col-lg-4 col-md-6 my-3">
         <div class="card border-0 shadow" style="width:350px; margin: auto;">
-          <img src="img/room_3.jpeg" class="card-img-top">
+          <img src="../../img/home_3.jpg" class="card-img-top">
           <div class="card-body">
             <h5>Sample Room</h5>
             <h6 class="mb-4 ">Rs. 100000 per year </h6>
@@ -230,7 +230,7 @@
 
             </div>
             <a href="#" class="btn btn-sm text-white custom-bg shadow-none">Book Now</a>
-            <a href="rooms.php" class="btn btn-sm btn-outline-dark shadow-none">More details</a>
+            <a href="../pages/rooms.php" class="btn btn-sm btn-outline-dark shadow-none">More details</a>
           </div>
         </div>
       </div>
@@ -243,7 +243,7 @@
 
 
 
-  <!-- Find US -->
+  
   <h2 class="mt-5 pt-4 md-4 text-center  ">Contact US </h2>
   <div class="container">
     <div class="row">
@@ -258,7 +258,26 @@
 
         <div class="bg-white p-4 rounded mb-4">
           
+        <div class="container mt-5">
+
+     
+          
+              
+                    <h3 class="card-title text-center mb-4">Feedback Form</h3>
+                    <form>
+                        <div class="mb-3">
+                            <label for="inputEmail" class="form-label">Email address</label>
+                            <input type="email" class="form-control" id="inputEmail" placeholder="Enter your email">
+                        </div>
+                        <div class="mb-3">
+                            <label for="inputMessage" class="form-label">Message</label>
+                            <textarea class="form-control" id="inputMessage" rows="5" placeholder="Enter your message"></textarea>
+                        </div>
+                        <button type="submit" class="btn text-white shadow-none custom-bg">Submit</button>
+             
          
+          </div>
+        </div>
         </div>
       </div>
     </div>
@@ -271,7 +290,7 @@
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-  <!-- Initialize Swiper -->
+
   <script>
     var swiper = new Swiper(".swiper-container", {
       spaceBetween: 30,
@@ -283,42 +302,7 @@
       }
     });
 
-    // var swiper = new Swiper(".swiper-testimonials", {
-    //   effect: "coverflow",
-    //   grabCursor: true,
-    //   centeredSlides: true,
-    //   slidesPerView: "auto",
-    //   slidesPerView: "3",
-    //   loop: true,
-    //   coverflowEffect: {
-    //     rotate: 50,
-    //     stretch: 0,
-    //     depth: 100,
-    //     modifier: 1,
-    //     slideShadows: false,
-    //   },
-    //   pagination: {
-    //     el: ".swiper-pagination",
-    //   },
-    //   breakpoints: {
-    //     "@0.00": {
-    //       slidesPerView: 1,
-    //       spaceBetween: 10,
-    //     },
-    //     "@0.75": {
-    //       slidesPerView: 2,
-    //       spaceBetween: 20,
-    //     },
-    //     "@1.00": {
-    //       slidesPerView: 3,
-    //       spaceBetween: 40,
-    //     },
-    //     "@1.50": {
-    //       slidesPerView: 4,
-    //       spaceBetween: 50,
-    //     },
-    //   },
-    // });
+    
   </script>
 
 

@@ -1,31 +1,31 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-success px-lg-3 sticky-top">
-    <div class="container-fluid">
-        <a class="navbar-brand" href="../client/public/index.php"><img src="../../img/original.svg" class="img-fluid custom-img" style="width: 200px; " alt="Logo of the project"></a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-success px-lg-3 sticky-top  " style=" height:5rem">
+    <div class="container" >
+        <a class="navbar-brand" href="../client/public/index.php">
+            <img src="../../img/original.svg" class="img-fluid custom-img" style="width: 150px;" alt="Logo of the project">
+        </a>
         <button class="navbar-toggler shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse px-lg-5 navcenter navbar-collapse"id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mx-auto mb-2 mb-lg-0" style="line-height: 1;">
                 <li class="nav-item">
-                    <a class="nav-link active me-2" aria-current="page" href="index.php">Home</a>
+                    <a class="nav-link active me-2" aria-current="page" href="../public/index.php">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link me-2" href="rooms.php">Rooms</a>
+                    <a class="nav-link me-2" href="../pages/rooms.php">Rooms</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link me-2" href="facilities.php">Facilities</a>
+                    <a class="nav-link me-2" href="../pages/facilities.php">Facilities</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link me-2" href="contact.php">Contact Us</a>
+                    <a class="nav-link me-2" href="../pages/contact.php">Contact Us</a>
                 </li>
-
-
             </ul>
-
-            <div class="d-flex" role="search">
-                <a href="http://localhost:8080/HBS_project/admin/admin.php" class="btn btn-outline-dark shadow-none me-lg-3 me-2">LOG OUT</a>
-            </div>
+            <div class="d-flex align-items-center">
+    <a href="http://localhost:8080/green_residences/admin/admin.php" class="btn btn-dark me-lg-3 me-2">
+        <i class="fas fa-sign-out-alt me-1"></i> Log Out
+    </a>
+</div>
 
         </div>
     </div>

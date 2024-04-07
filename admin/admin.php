@@ -1,5 +1,5 @@
-<?php require('db_connection.php') ?>
-<?php require('essentials.php') ?>
+<?php require('../server/db_connection.php') ?>
+<?php require('../server/essentials.php') ?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -10,7 +10,7 @@
     <title>Admin-login</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <?php require('links.php') ?>
+    <?php require('../server/links.php') ?>
 
     <style>
         * {
@@ -64,15 +64,15 @@
     </style>
 </head>
 
-<body class="bg-light">
+<body class="bg-light ">
 
-    <div class="login-form text-center rounded bg-white shadow overflow-hidden">
+    <div class="login-form text-center rounded  shadow overflow-hidden">
         <form method="post" action="">
-            <h4 class="bg-dark text-white py-3">Admin Login</h4>
+            <h4 class="bg-success  text-white py-3">Login</h4>
             <div class="p-4">
                 <div class="mb-3">
                     <div class="mb-3">
-                        <label class="form-label">Select The Admin Type</label>
+                        <label class="form-label">Select The Type</label>
                         <select name="admin_type" class="form-select shadow-none" required>
                             <option value="" disabled selected>Select</option>
                             <option value="Student">Student</option>
@@ -102,7 +102,7 @@
     $hname = 'localhost';
     $uname = 'root';  
     $pass = '';       
-    $db = 'green_residences';    
+    $db = 'green_residence';    
 
 
     try {
@@ -125,7 +125,7 @@
         switch ($admin_type) {
             case 'Student':
                 $table_name = 'student_info';
-                $redirect_page = 'http://localhost:8080/HBS_project/index.php';
+                $redirect_page = 'http://localhost:8080/green_residences/index.php';
                 break;
 
             case 'Warden':
@@ -147,22 +147,23 @@
         }
 
   
-        $stmt = $pdo->prepare("SELECT * FROM $table_name WHERE name = ? AND password = ?");
-        $stmt->execute([$admin_name, $admin_pass]);
-        $row = $stmt->fetch();
+        $stmt = $pdo->prepare("SELECT * FROM admin WHERE name = ? AND password = ?");
+        if ($stmt->execute([$admin_name, $admin_pass])) {
+            $row = $stmt->fetch();
 
         if ($row) {
      
-            header("Location: $redirect_page");
+            header("Location: ../client/pages/dashboard.php");
             exit;
         } else {
          
             echo "Invalid username or password";
         }
     }
+}
     ?>
 
-    <?php require('scripts.php') ?>
+    <?php require('../server/scripts.php') ?>
 
 </body>
 

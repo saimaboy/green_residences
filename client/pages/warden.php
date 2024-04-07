@@ -84,27 +84,26 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                    // Database connection details
+                                    
                                     $hname = 'localhost';
-                                    $uname = 'root';  // username
-                                    $pass = '';       // password
-                                    $db = 'hbsdb';    // database name
+                                    $uname = 'root';  
+                                    $pass = '';       
+                                    $db = 'hbsdb';    
 
-                                    // Create connection
+                                    
                                     $conn = new mysqli($hname, $uname, $pass, $db);
 
-                                    // Check connection
+                              
                                     if ($conn->connect_error) {
                                         die("Connection failed: " . $conn->connect_error);
                                     }
 
                                     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                                        // Check if delete button is clicked
+                                       
                                         if (isset($_POST['delete'])) {
                                             $property_id = $_POST['delete'];
 
-                                            // Delete record from property_info table
-                                            $sql_delete = "DELETE FROM property_info WHERE property_id = ?";
+                                            $sql_delete = "DELETE FROM property WHERE property_id = ?";
                                             $stmt_delete = $conn->prepare($sql_delete);
                                             $stmt_delete->bind_param("i", $property_id);
                                             if ($stmt_delete->execute()) {
@@ -114,12 +113,11 @@
                                             }
                                             $stmt_delete->close();
                                         }
-                                        // Check if accept property button is clicked
+                                        
                                         if (isset($_POST['accept'])) {
                                             $property_id = $_POST['accept'];
 
-                                            // Update the accepted column to 1 for the clicked property
-                                            $sql_accept = "UPDATE property_info SET accepted = 1 WHERE property_id = ?";
+                                            $sql_accept = "UPDATE property SET accepted = 1 WHERE property_id = ?";
                                             $stmt_accept = $conn->prepare($sql_accept);
                                             $stmt_accept->bind_param("i", $property_id);
                                             if ($stmt_accept->execute()) {
@@ -131,12 +129,11 @@
                                         }
                                     }
 
-                                    // Fetch data from database
-                                    $sql = "SELECT * FROM property_info";
+                                    $sql = "SELECT * FROM property";
                                     $result = $conn->query($sql);
 
                                     if ($result->num_rows > 0) {
-                                        // Output data of each row
+                                   
                                         while ($row = $result->fetch_assoc()) {
                                             echo "<tr>";
                                             echo "<td>" . $row["property_id"] . "</td>";
@@ -150,7 +147,7 @@
                                             echo "<td>
                                             <form method='post'>
                                             <button type='submit' name='delete' value='" . $row['property_id'] . "' class='btn btn-danger'>Delete</button>";
-                                            // Check if the property is accepted or not and display the accept button accordingly
+                                      
                                             if ($row['accepted'] == 0) {
                                                 echo "<button type='submit' name='accept' value='" . $row['property_id'] . "' class='btn btn-success mt-2'>Accept</button>";
                                             } else {

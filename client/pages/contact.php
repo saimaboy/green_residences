@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="common.css">
 
-  <?php require('links.php') ?>
+  <?php require('../../server/links.php') ?>
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
   <style>
@@ -38,7 +38,7 @@
 </head>
 
 <body class="bg-light">
-  <?php require('header.php'); ?>
+  <?php require('../../components/header.php'); ?>
 
   <div class="my-5 px-4">
     <h2 class="fw-bold h-font text-center">Contact Us</h2>
@@ -154,7 +154,7 @@
 
 
 
-  <?php require('footer.php'); ?>
+  <?php require('../../components/footer.php'); ?>
 
 
 

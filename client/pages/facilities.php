@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="common.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <?php require('links.php') ?>
+  <?php require('../../server/links.php') ?>
 
   <style>
     /* Chrome, Safari, Edge, Opera */
@@ -26,29 +26,28 @@
 </head>
 
 <body class="bg-light">
-  <?php require('header.php'); ?>
+  <?php require('../../components/header.php'); ?>
 
   <div class="my-5 px-4">
     <h2 class="fw-bold h-font text-center">Our facilities</h2>
     <div class="h-line bg-dark"></div>
-    <p class="text-center mt-3">Lorem ipsum dolor sit amet consectetur adipisicing elit.<br> Doloremque quasi dolorum nisi ab, nostrum distinctio eaque sunt ad vero! Ea distinctio impedit possimus sit ullam beatae labore aperiam, aut mollitia!</p>
-  </div>
+     </div>
   <div class="container mb-4">
     <div class="row">
       <?php
-      // Database connection
-      $mysqli = new mysqli("localhost", "root", "", "green_residences");
+   
+      $mysqli = new mysqli("localhost", "root", "", "green_residence");
       if ($mysqli->connect_errno) {
         echo "Failed to connect to MySQL: " . $mysqli->connect_error;
         exit();
       }
 
-      // Fetch data from 'facilities' table
+ 
       $sql = "SELECT id, title, description, image FROM facilities";
       $result = $mysqli->query($sql);
       $i = 1;
 
-      // Display the fetched data in the HTML structure
+   
       if ($result->num_rows > 0) {
         while ($row = $result->fetch_assoc()) {
           echo "<div class='col-lg-4 col-md-6 md-5 px-4 mt-4'>";
@@ -65,7 +64,7 @@
         echo "<div class='col-12'><p>No data available</p></div>";
       }
 
-      // Close the database connection
+  
       $mysqli->close();
       ?>
     </div>
@@ -74,7 +73,7 @@
 
 
 
-  <?php require('footer.php'); ?>
+  <?php require('../../components/footer.php'); ?>
 
 
 

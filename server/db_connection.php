@@ -2,7 +2,7 @@
 $hname = 'localhost';
 $uname = 'root';  
 $pass = '';    
-$db = 'green_residences';   
+$db = 'green_residence';   
 $con = mysqli_connect($hname, $uname, $pass, $db); 
 if (!$con) die('Could not connect: ' . mysqli_connect_error());
 

@@ -1,7 +1,9 @@
 * {
-
-    font-family: 'Inter', sans-serif;
-background-color: #279e8c;
+  
+  font-family: 'Inter', sans-serif;
+  background-color: #279e8c;
+  background-image: url('your-background-image-url.jpg'); 
+  background-size: cover;
   }
 
   .h-font {

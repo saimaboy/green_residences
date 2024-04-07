@@ -1,4 +1,4 @@
-<?php require('db_connection.php') ?>
+<?php require('../../server/db_connection.php') ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin panel-Add Student</title>
     <link rel="stylesheet" href="common_admin.css">
-    <?php require('links.php') ?>
+    <?php require('../../server/links.php') ?>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
 
     <style>
@@ -26,7 +26,7 @@
         <h3 class="mb-0 h-font">ADMIN PANEL</h3>
         <a href="admin.php" class="btn btn-light btn-sm">LOG OUT</a>
     </div>
-    <?php include("admin_header.php") ?>
+    <?php include("../../components/admin_header.php") ?>
 
 
 
@@ -189,7 +189,7 @@
             </div>
         </div>
     </div>
-    <?php require('scripts.php') ?>
+    <?php require('../../server/scripts.php') ?>
 </body>
 
 </html>

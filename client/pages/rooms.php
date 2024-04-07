@@ -7,7 +7,7 @@
   <title>Hotel Booking Website - Rooms</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <?php require('links.php') ?>
+  <?php require('../../server/links.php') ?>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBICHjsg4_yq3SOJGyqUfw_UO8h2Jz_LfU&callback=initMap&loading=async" defer></script>
   <style>
     * {
@@ -38,20 +38,20 @@
 
     .card {
       height: 100%;
-      /* Set a fixed height for all cards */
+    
       width: 100%;
-      /* Adjusted width to take full width of the column */
+     
       padding: 10px;
     }
 
-    /* Chrome, Safari, Edge, Opera */
+    
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
       -webkit-appearance: none;
       margin: 0;
     }
 
-    /* Firefox */
+    
     input[type=number] {
       -moz-appearance: textfield;
     }
@@ -59,7 +59,7 @@
 </head>
 
 <body class="bg-light">
-  <?php require('header.php'); ?>
+  <?php require('../../components/header.php'); ?>
 
   <div class="my-5 px-4">
     <h2 class="fw-bold h-font text-center">Our Rooms</h2>
@@ -68,31 +68,31 @@
 
   <div class="container">
     <div class="row mb-5">
-      <div class="col-lg-6 col-md-6 px-4"> <!-- Rooms Column -->
-        <!-- Add your PHP code to dynamically generate room cards here -->
-        <div class="col-lg-6 col-md-6 px-4" style="width: 550px;"> <!-- Rooms Column -->
+      <div class="col-lg-6 col-md-6 px-4"> 
+       
+        <div class="col-lg-6 col-md-6 px-4" style="width: 550px;"> 
           <?php
-          // Database connection details
+        
           $hname = 'localhost';
-          $uname = 'root';  // username
-          $pass = '';       // password
-          $db = 'green_residences';    // database name
+          $uname = 'root';  
+          $pass = '';    
+          $db = 'green_residence';    
 
-          // Create connection
+        
           $conn = new mysqli($hname, $uname, $pass, $db);
 
-          // Check connection
+        
           if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
           }
 
-          // Fetch data from database
+  
           $sql = "SELECT * FROM property WHERE accepted = 1";
           $result = $conn->query($sql);
 
-          // Display rooms
+        
           if ($result->num_rows > 0) {
-            // Output data of each row
+         
             while ($row = $result->fetch_assoc()) {
               echo "<div class='card mb-3 border-0 shadow'>";
               echo "<div class='row g-0 mt-3'>";
@@ -100,16 +100,15 @@
               echo "<img src='data:image/jpeg;base64," . base64_encode($row['room_image']) . "' class='img-fluid rounded' alt='Room Image'>";
               echo "<div class='d-flex justify-content-center mt-4'>";
 
-              // Check booking status and display appropriate button
+            
               if ($row['booking_status'] == 'available') {
                 echo "<form action='rooms.php' method='post'>";
                 echo "<input type='hidden' name='property_id' value='" . $row['property_id'] . "'>";
-                echo "<button type='submit' name='book_now' class='btn btn-sm text-white custom-bg shadow-none'>Book Now</button>"; // Book button
-                echo "</form>";
+                echo "<button type='submit' name='book_now' class='btn btn-sm text-white custom-bg shadow-none'>Book Now</button>";
               } elseif ($row['booking_status'] == 'pending') {
-                echo "<button type='button' class='btn btn-sm text-dark custom-bg shadow-none' disabled>Pending</button>"; // Pending button
+                echo "<button type='button' class='btn btn-sm text-dark custom-bg shadow-none' disabled>Pending</button>"; 
               } else {
-                echo "<button type='button' class='btn btn-sm text-dark custom-bg shadow-none' disabled>Booked</button>"; // Booked button
+                echo "<button type='button' class='btn btn-sm text-dark custom-bg shadow-none' disabled>Booked</button>"; 
               }
 
               echo "</div>";
@@ -137,7 +136,7 @@
             echo "<div class='col-md-12'><p>No records found</p></div>";
           }
 
-          // Handle booking now action
+   
           if (isset($_POST['book_now']) && isset($_POST['property_id'])) {
             $propertyId = $_POST['property_id'];
             $query = "UPDATE property SET booking_status = 'pending' WHERE property_id = ?";
@@ -147,7 +146,7 @@
             $stmt->execute();
           }
 
-          // Close connection
+         
           $conn->close();
           ?>
         </div>
@@ -155,11 +154,10 @@
 
 
 
-      <!-- Map Column -->
+ 
       <div class="col-lg-6 col-md-6 px-4">
         <div class="bg-white rounded shadow p-5">
-          <!--iframe height="320" class="w-100 rounded" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3961.5758403132254!2d80.04157289999999!3d6.8213291!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae2523b05555555%3A0x546c34cd99f6f488!2sNSBM%20Green%20University!5e0!3m2!1sen!2slk!4v1708017488781!5m2!1sen!2slk" loading="lazy"></iframe-->
-          <div id="map" style="width: 500px;height: 500px;"></div>
+         <div id="map" style="width: 500px;height: 500px;"></div>
           <script>
             function initMap() {
               const map = new google.maps.Map(document.getElementById("map"), {
@@ -171,28 +169,26 @@
               });
 
               <?php
-              // Database connection details
+             
               $hname = 'localhost';
-              $uname = 'root';  // username
-              $pass = '';       // password
-              $db = 'green_residences';    // database name
+              $uname = 'root';  
+              $pass = '';       
+              $db = 'green_residence';    
 
-              // Create connection
+             
               $conn = new mysqli($hname, $uname, $pass, $db);
 
-              // Check connection
               if ($conn->connect_error) {
                 die("Connection failed: " . $conn->connect_error);
               }
 
-              // Fetch data from database
+          
               $sql = "SELECT * FROM property WHERE accepted = 1";
               $result = $conn->query($sql);
 
               if ($result->num_rows > 0) {
-                // Output data of each row
+             
                 while ($row = $result->fetch_assoc()) {
-                  // Create a closure to encapsulate marker and infowindow
                   echo "(function() {\n";
                   echo "var marker = new google.maps.Marker({\n";
                   echo "position: {\n";
@@ -203,7 +199,7 @@
                   echo "title: '" . $row["room_name"] . "',\n";
                   echo "});\n";
 
-                  // Info window content
+     
                   echo "var contentString = '<div class=\"card\" style=\"max-width: 200px;\">";
                   echo "<img src=\"data:image/jpeg;base64," . base64_encode($row['room_image']) . "\" class=\"card-img-top\" alt=\"Room Image\">";
                   echo "<div class=\"card-body\">";
@@ -222,20 +218,20 @@
                   echo "</div>";
                   echo "</div>';\n";
 
-                  // Info window
+    
                   echo "var infowindow = new google.maps.InfoWindow({\n";
                   echo "content: contentString \n";
                   echo "});\n";
 
-                  // Add click event listener to marker
+        
                   echo "marker.addListener('click', function() {
                 infowindow.open(map, marker);
                     });\n";
-                  echo "})();\n"; // Close the closure
+                  echo "})();\n"; 
                 }
               }
 
-              // Close connection
+            
               $conn->close();
               ?>
             }
@@ -248,11 +244,9 @@
     </div>
   </div>
 
-  <?php require('footer.php'); ?>
+  <?php require('../../components/footer.php'); ?>
 
-  <!-- <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script> -->
 
-  <!-- Initialize Swiper -->
   <script>
     var swiper = new Swiper(".swiper-container", {
       spaceBetween: 30,
