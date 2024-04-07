@@ -1,0 +1,49 @@
+* {
+
+    font-family: 'Inter', sans-serif;
+background-color: #279e8c;
+  }
+
+  .h-font {
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .custom-bg {
+    background-color: #2ec1ac;
+  }
+
+  .custom-bg:hover {
+    background-color: #279e8c;
+  }
+
+  .h-line {
+    width: 150px;
+    margin: 0 auto;
+    height: 1.7px;
+
+  }
+
+
+.navcenter{
+  padding-left: 10rem;
+}
+
+  .pop:hover {
+    background-color: #2ec1ac !important;
+    transform: scale(1.03);
+    transition: 0.3s;
+  }
+
+  .availabity-form {
+    margin-top: -50px;
+    z-index: 2;
+    position: relative;
+  }
+
+  @media screen and (max-width:575px) {
+    .availabity-form {
+      margin-top: 0px;
+      padding: 0 35px;
+    }
+
+  }
